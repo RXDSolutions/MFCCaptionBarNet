@@ -69,6 +69,10 @@ void CaptionBar::Show()
 	}
 
 	m_wndCaptionBar.ShowWindow(SW_SHOW);
+
+	HWND hwnd = (HWND)_window.ToInt64();
+	CWnd* pWnd = CWnd::FromHandle(hwnd);
+	dynamic_cast<CFrameWnd*>(pWnd)->RecalcLayout(FALSE);
 }
 
 Bitmap^ CaptionBar::Image::get()
